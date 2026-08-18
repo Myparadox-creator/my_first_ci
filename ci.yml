@@ -1,0 +1,19 @@
+name: My first ci
+
+on:
+    push:
+        branches: [ "main" ]
+jobs:
+    run-my-tests:
+        run-on: ubuntu-latest
+        steps:
+          - name: Get the code
+            uses: action/checkout@v4
+
+          - name: Install Node
+            uses: actions/setup-node@v4
+            with:
+                node-version: '20'
+
+          - name: Run the test script
+            run: npm test
